@@ -108,7 +108,7 @@ public class NARODNA extends jukebox {
 			}
 		});
 		//btnBack.setBounds(10, 11, 71, 23);
-		btnBack.setBounds(10, 11, 67, 23);
+		btnBack.setBounds(10, 11, 100, 23);
 		frmNarodna.getContentPane().add(btnBack);
 		
 		
@@ -121,6 +121,7 @@ public class NARODNA extends jukebox {
 				
 				obj=comboBox2.getSelectedItem();
 				player.setPath(String.valueOf(obj));
+				btnPlay.setEnabled(true);
 			}
 			
 		});
@@ -144,7 +145,7 @@ public class NARODNA extends jukebox {
 				if(lblIdePesma.getText()=="da"){
 					player.end(pos);
 					if(jukebox.stanje<70){
-						JOptionPane.showMessageDialog(null, "NEMATE VIŠE NOVCA");
+						JOptionPane.showMessageDialog(null, "NEMATE VIï¿½E NOVCA");
 						frmNarodna.hide();
 					}
 					
@@ -154,11 +155,12 @@ public class NARODNA extends jukebox {
 						lblStanje.setText(lblPROBA.getText());
 						lblPROBA.setVisible(false);
 						player.play(pos);
+						btnPlay.setEnabled(false);
 					}
 				}
 				else{
 					if(jukebox.stanje<70){
-						JOptionPane.showMessageDialog(null, "NEMATE VIŠE NOVCA");
+						JOptionPane.showMessageDialog(null, "NEMATE VIï¿½E NOVCA");
 						frmNarodna.hide();
 					}
 					else{
@@ -168,6 +170,7 @@ public class NARODNA extends jukebox {
 						lblPROBA.setVisible(false);
 						player.play(pos);
 						lblIdePesma.setText("da");
+						btnPlay.setEnabled(false);
 					}
 				}	
 				
@@ -200,6 +203,7 @@ public class NARODNA extends jukebox {
 			public void actionPerformed(ActionEvent e) {
 				
 				player.end(pos);
+				btnPlay.setEnabled(true);
 			}
 			
 		});

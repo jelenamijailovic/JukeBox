@@ -21,7 +21,7 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 
 
-public class PUNK extends jukebox{
+public class PUNK extends jukebox {
 
 	MUSIC player= new MUSIC ();
 	private int pos=0;
@@ -100,11 +100,13 @@ public class PUNK extends jukebox{
 					frmPunk.hide();
 				}
 				else
+					
 					frmPunk.hide();
 			}
 			
+			
 		});
-		btnBack.setBounds(10, 11, 67, 23);
+		btnBack.setBounds(10, 11, 100, 23);
 		frmPunk.getContentPane().add(btnBack);
 		
 		
@@ -116,7 +118,7 @@ public class PUNK extends jukebox{
 				
 				obj=comboBox1.getSelectedItem();
 				player.setPath(String.valueOf(obj));
-				
+				btnPlay.setEnabled(true);
 			}
 		});
 		comboBox1.setModel(new DefaultComboBoxModel(new String[] {"Hladno Pivo-Pitala si me.mp3", "Hladno pivo - Pravo ja.mp3", "Goblini -  Voz.mp3"}));
@@ -140,7 +142,7 @@ public class PUNK extends jukebox{
 					if(lblIdePesma.getText()=="da"){
 						player.end(pos);
 						if(jukebox.stanje<50){
-							JOptionPane.showMessageDialog(null, "NEMATE VIŠE NOVCA");
+							JOptionPane.showMessageDialog(null, "NEMATE VIï¿½E NOVCA");
 							frmPunk.hide();
 						}
 						
@@ -150,11 +152,12 @@ public class PUNK extends jukebox{
 							lblStanje.setText(lblPROBA.getText());
 							lblPROBA.setVisible(false);
 							player.play(pos);
+							btnPlay.setEnabled(false);
 						}
 					}
 					else{
 						if(jukebox.stanje<50){
-							JOptionPane.showMessageDialog(null, "NEMATE VIŠE NOVCA");
+							JOptionPane.showMessageDialog(null, "NEMATE VIï¿½E NOVCA");
 							frmPunk.hide();
 						}
 						else{
@@ -164,6 +167,7 @@ public class PUNK extends jukebox{
 							lblPROBA.setVisible(false);
 							player.play(pos);
 							lblIdePesma.setText("da");
+							btnPlay.setEnabled(false);
 						}
 					}	
 				
@@ -182,6 +186,7 @@ public class PUNK extends jukebox{
 			public void actionPerformed(ActionEvent e) {
 				
 				player.pause();
+				
 			}
 			
 		});
@@ -197,6 +202,7 @@ public class PUNK extends jukebox{
 			public void actionPerformed(ActionEvent e) {
 				
 				player.end(pos);
+				btnPlay.setEnabled(true);
 			}
 			
 		});
