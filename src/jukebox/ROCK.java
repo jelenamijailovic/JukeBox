@@ -102,7 +102,7 @@ public class ROCK extends jukebox{
 			}
 		});
 		//btnBack.setBounds(10, 11, 72, 23);
-		btnBack.setBounds(10, 11, 67, 23);
+		btnBack.setBounds(10, 11, 100, 23);
 		frmRock.getContentPane().add(btnBack);
 		
 		
@@ -115,6 +115,7 @@ public class ROCK extends jukebox{
 				
 				obj=comboBox.getSelectedItem();
 				player.setPath(String.valueOf(obj));
+				btnPlay.setEnabled(true);
 			}
 			
 		});
@@ -137,7 +138,7 @@ public class ROCK extends jukebox{
 				if(lblIdePesma.getText()=="da"){
 					player.end(pos);
 					if(jukebox.stanje<60){
-						JOptionPane.showMessageDialog(null, "NEMATE VIŠE NOVCA");
+						JOptionPane.showMessageDialog(null, "NEMATE VIï¿½E NOVCA");
 						frmRock.hide();
 					}
 					
@@ -147,11 +148,12 @@ public class ROCK extends jukebox{
 						lblStanje.setText(lblPROBA.getText());
 						lblPROBA.setVisible(false);
 						player.play(pos);
+						btnPlay.setEnabled(false);
 					}
 				}
 				else{
 					if(jukebox.stanje<60){
-						JOptionPane.showMessageDialog(null, "NEMATE VIŠE NOVCA");
+						JOptionPane.showMessageDialog(null, "NEMATE VIï¿½E NOVCA");
 						frmRock.hide();
 					}
 					else{
@@ -161,6 +163,7 @@ public class ROCK extends jukebox{
 						lblPROBA.setVisible(false);
 						player.play(pos);
 						lblIdePesma.setText("da");
+						btnPlay.setEnabled(false);
 					}
 				}	
 				
@@ -194,6 +197,7 @@ public class ROCK extends jukebox{
 			public void actionPerformed(ActionEvent e) {
 				
 				player.end(pos);
+				btnPlay.setEnabled(true);
 			}
 			
 		});

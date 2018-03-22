@@ -14,13 +14,13 @@ import javax.swing.JOptionPane;
 import javazoom.jl.player.Player;
 
 
-public class MUSIC extends jukebox{
+public class MUSIC extends jukebox {
 
 
 private Player player;
 private FileInputStream FIS;
 private BufferedInputStream BIS;
-private boolean canResume;
+boolean canResume;
 private String path;
 private int total;
 private int stopped;
@@ -57,6 +57,7 @@ public void pause(){
 	try{
 		if(canResume) resume();
 		else{
+			
 			stopped = FIS.available();
 			player.close();
 			FIS = null;

@@ -244,7 +244,7 @@ public class jukebox {
 		btnUbaciNovac.setBackground(new Color(255, 192, 203));
 		btnUbaciNovac.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnUbaciNovac.setForeground(new Color(219, 112, 147));
-		btnUbaciNovac.setBounds(10, 228, 120, 23);
+		btnUbaciNovac.setBounds(10, 228, 150, 23);
 		frmJukebox.getContentPane().add(btnUbaciNovac);
 		
 		
